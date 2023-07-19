@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Lister2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <header class="bg-success text-white">
+        <div class="container d-flex justify-content-between align-items-center py-3">
+            <div class="logo">
+                <h1 class="h1">Item Lister</h1>
+            </div>
+            <div class="search">
+                <input type="text" class="" placeholder="search......." style="width: 300px;">
+            </div>
+        </div>
+    </header>
+    <div>
+        <main class="col-4 offset-md-4 mt-4" id="main">
+            <div class="add_items border">
+                <h1>Add Items</h1>
+                <input type="text">
+                <button type="button" class="btn btn-dark">Submit</button>
+            </div>
+            <div class="items border">
+                <div>
+                    <h3>Items</h3>
+                </div>
+                <div class="item list">
+                    <ul class="list-unstyled p-2">
+                        <li class="d-flex justify-content-between border">
+                            <span>Item 1</span>
+                            <button type="button" class="btn btn-danger">x</button>
+                        </li>
+                        <li class="d-flex justify-content-between border">
+                            <span>Item 2</span>
+                            <button type="button" class="btn btn-danger">x</button>
+                        </li>
+                        <li class="d-flex justify-content-between border">
+                            <span>Item 3</span>
+                            <button type="button" class="btn btn-danger">x</button>
+                        </li>
+                        <li class="d-flex justify-content-between border">
+                            <span>Item 4</span>
+                            <button type="button" class="btn btn-danger">x</button>
+                        </li>
+                        <br>
+                        <button type="button" style="width: 100%;" class="btn btn-dark btn-block" id="button">Click Here</button>
+                    </ul>
+                    <div id="output"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- <h1>The value is: <span id="displayValue"></span></h1>
+    <form>
+        <select id="operator">
+            <option value="Add">Add</option>
+            <option value="Subtract">Subtract</option>
+            <option value="Multiply">Multiply</option>
+            <option value="Division">Division</option>
+            <option value="None">No operator</option>
+        </select>
+        <button type="button" id="SubmitBtn">Submit</button>
+    </form> -->
+
+    <script>
+        // let output = document.getElementById('output');
+        // output.innerHTML = '<h3>Button</h3>'
+        // console.log(output)
+   //Using the CLICK BUTTON
+        // let button = document.querySelector('#button').addEventListener('click', buttonClick);
+        // function buttonClick(){
+        //     console.log('Button clicked');
+        // }
+
+        //     let button = document.querySelector('#button');
+        //    button.addEventListener('click', buttonClick);
+        //     function buttonClick(e){
+        //     //     console.log('button clicked');
+        //     // let h1 = document.querySelector('.h1');
+        //     // console.log(h1);
+        //     // h1.textContent = 'changed';
+        //     // document.querySelector('#main').style.backgroundColor = 'orange';
+        //         console.log(e);
+        //         console.log(e.target);
+        //         console.log(e.target.className)
+
+        //     }
+
+//USING THE RUNEVENT BUTTONCLICK
+         let button = document.querySelector('#button').addEventListener('dblclick', runEvent);
+         function runEvent(e){
+            console.log('EVENT TYPE: ' + e.type);
+         }
+    
+
+
+    //STEP 2 OFF ADDING A BUTTONCLICK
+        // function buttonClick(){
+        //     console.log('button clicked');
+        // }
+//EXAMINE THE DOCUMENT OBJECT
+        // console.log(document.domain);
+        // console.log(document.URL);
+        // console.log(document.title);
+        // console.log(document.all);
+        // console.log(document.all[12]);
+        // console.log(document.forms);
+//GETELEMENTBYID
+       // let headerTit = document.getElementById('header-title');
+        
+//difference between the textContent n  is styling 
+        //console.log(headerTit.in = innnerText);
+        // headerTit.innerHTML = '<h3>say goodbye<h3/>';
+            // let header = document.getElementById('main-header');
+            // console.log(header);
+            // header.style.borderBottom = '5 px solid black';
+
+
+//GETTING ELEMENTSBYCLASSNAME
+            //let Items = document.getElementsByClassName('list-group-item');
+            //console.log(Items);
+            //console.log(Items[3].textContent);
+            //Items[3].textContent = 'change for me';
+            //Items[3].style.backgroundColor = 'blue';
+//to gv all items a background color, we use the for loop
+            // for (i = 0; i < Items.length; i++){
+            //     Items[i].style.backgroundColor = 'orange';
+            // };
+
+//GETTING ELEMENTS BY TAGNAME
+//             let li = document.getElementsByTagName('li');
+//             console.log(li);
+//             console.log(li[2].textContent);
+//             li[2].textContent = 'say bye-bye';
+// //to gv all items a background color, we use the for loop
+//                 for (i = 0; i < li.length; i++){
+//                     li[i].style.backgroundColor = 'green';
+//                 }
+        
+//GETTING ELEMENTS BY QUARYSELECTOR
+    // let head1 = document.querySelector('#main-header');
+    // console.log(header);
+    // header.style.borderBottom = '3px solid orange';
+    // let input = document.querySelector('input');
+    // console.log(input);
+    // input.value = 'say my name';
+    // let submit = document.querySelector('input[type="submit"]');
+    // console.log(submit); 
+    // submit.value = 'send';
+    
+//QUARYSELECTORALL
+    //     let titles = document.querySelectorAll('.title');
+    //     console.log(titles);
+    //    console.log(titles[0].textContent);
+
+    // titles[0].textContent = 'hello boy'
+
+//TRAVERSING THE DOM
+   // let itemList = document.querySelector('#items');
+//PARENTNODE PROPERTIES
+  //   console.log(itemList.parentNode);
+//CHILDNODES
+    // console.log(itemList.children);
+    // console.log(itemList.children[2]);
+//FIRSTCHILD AND LASTCHILD
+    // console.log(itemList.firstElementChild);
+    // console.log(itemList.lastElementChild);
+    // itemList.lastElementChild.style.backgroundColor = 'orange';
+// SIBLING ELEMENT
+    // console.log(itemList.previousElementSibling);
+    // itemList.previousElementSibling.style.backgroundColor = 'orange';
+// CREATING DOM ELEMENTS
+// CREATING A DIV
+//     let newDiv = document.createElement('div');
+// //ADDING CLASSNAME
+//     newDiv.className = 'hello'
+// //ADDING ID
+//    newDiv.id = 'hello 1'
+// //ADDING ATTRIBUTES
+//     newDiv.setAttribute('title', 'hello world')
+// //CREATING A TEXTNODE
+//     let newDivText = document.createTextNode('Hello world');
+// //ADDING TEXT TO DIV
+//     newDiv.appendChild(newDivText);
+//     let container = document.querySelector('header .container');
+//     let h1 = document.querySelector('header h1'); 
+//     console.log(newDiv);
+//     container.insertBefore(newDiv, h1);
+
+   
+    
+
+
+
+    </script>
+</body>
+</html>
